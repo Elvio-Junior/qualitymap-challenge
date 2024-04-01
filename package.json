@@ -1,0 +1,22 @@
+{
+  "name": "qualitymap-challenge",
+  "version": "1.0.0",
+  "description": "Este projeto tem o objetivo realizar a automação front-end e back-end utilizando o framework Playwright",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elvio-Junior/qualitymap-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elvio-Junior/qualitymap-challenge/issues"
+  },
+  "homepage": "https://github.com/Elvio-Junior/qualitymap-challenge#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.12.2"
+  }
+}
