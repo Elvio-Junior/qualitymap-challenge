@@ -1,0 +1,4 @@
+Cenário 1: Acessar a Home do Site
+DADO QUE digito a url principal no endereço do navegador
+QUANDO clico Enter
+ENTÃO deve ser direcionado para a tela Home
