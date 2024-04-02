@@ -33,6 +33,7 @@ Este projeto tem o objetivo realizar a automação front-end e back-end utilizan
 ## Execução dos Testes
 
 Existe algumas maneiras de executar os testes, sendo:
+
     - Executar todos os testes: `npm run test:all`
     - Executar testes somente de front-end: `npm run test:web`
     - Executar testes somente de back-end: `npm run test:api`
