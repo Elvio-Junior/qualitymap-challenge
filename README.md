@@ -27,8 +27,17 @@ Este projeto tem o objetivo realizar a automação front-end e back-end utilizan
 # Projeto
 
 ## Instalação
+    - Realizar o clone do projeto
+    - Instalar os recursos necessários digite na raiz do projeto o comando `npm install`
 
-Para instalar os recursos necessários digite na raiz do projeto o comando `npm install`
+## Execução dos Testes
+
+Existe algumas maneiras de executar os testes, sendo:
+    - Executar todos os testes: `npm run test:all`
+    - Executar testes somente de front-end: `npm run test:web`
+    - Executar testes somente de back-end: `npm run test:api`
+    - Executar testes via interface gráfica: `npm run test:ui`
+    - Exibir relatórios dos testes: `npm run test:report`
 
 # Referências
 - https://nodejs.org/pt-br/

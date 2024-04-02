@@ -1,7 +1,5 @@
-import { test, expect } from '@playwright/test'
-import { HomePage } from '../pages/homePage'
-import { Person } from '../helpers/data/person'
-import { Faker, pt_BR } from '@faker-js/faker';
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../../pages/homePage';
 
 test.describe('Suite Test Home Page', async () => {
 

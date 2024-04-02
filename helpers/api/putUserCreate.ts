@@ -1,0 +1,15 @@
+export const putUserCreate = {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      },
+      "_id": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "message",
+      "_id"
+    ]
+};

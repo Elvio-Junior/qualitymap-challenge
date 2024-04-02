@@ -3,7 +3,13 @@
   "version": "1.0.0",
   "description": "Este projeto tem o objetivo realizar a automação front-end e back-end utilizando o framework Playwright",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:all": "playwright test",
+    "test:web": "playwright test tests/web",
+    "test:api": "playwright test tests/api --project=chromium",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Elvio-Junior/qualitymap-challenge.git"
@@ -20,6 +26,7 @@
     "@types/node": "^20.12.2"
   },
   "dependencies": {
-    "@faker-js/faker": "^8.4.1"
+    "@faker-js/faker": "^8.4.1",
+    "jsonschema": "^1.4.1"
   }
 }
