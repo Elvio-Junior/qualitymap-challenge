@@ -13,12 +13,11 @@ export class HomePage {
         this.elements = {
             registerLink: page.locator('li', { hasText: 'Register' }),
             loginLink: page.locator('li', { hasText: 'Log in' }),
-            myAccountLink: page.locator('li', { hasText: 'Wishlist (0)' })
-
+            myAccountLink: page.locator('li', { hasText: 'My account' }).first()
         };
     }
 
     async goTo() {
-        await this.page.goto('https://demo.nopcommerce.com/');
+        await this.page.goto('/');
     };
 };

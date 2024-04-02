@@ -2,6 +2,8 @@ import { test, expect } from '@playwright/test'
 import { HomePage } from '../pages/homePage'
 import { Person } from '../helpers/data/person'
 import { Faker, pt_BR } from '@faker-js/faker';
+import { CustomerInfoPage } from '../pages/customerInfo';
+import { LoginPage } from '../pages/loginPage';
 import { RegisterPage } from '../pages/registerPage';
 import { RegisterResultPage } from '../pages/registerResultPage';
 import { registerPageMessages } from '../helpers/registerPage/registerPageMessages';
@@ -10,14 +12,18 @@ import { passwords } from '../helpers/data/passwords';
 
 test.describe('Suite Test Register Page', async () => {
 
+    let customerInfoPage: CustomerInfoPage;
     let homePage: HomePage;
+    let loginPage: LoginPage;
     let registerPage: RegisterPage;
     let registerResultPage: RegisterResultPage
     let person: Person;
     let faker: Faker;
 
     test.beforeEach(async ({ page }) => {
+        customerInfoPage = new CustomerInfoPage(page);
         homePage = new HomePage(page);
+        loginPage = new LoginPage(page);
         registerPage = new RegisterPage(page);
         registerResultPage = new RegisterResultPage(page);
         faker = new Faker({ locale: pt_BR })
@@ -61,8 +67,8 @@ test.describe('Suite Test Register Page', async () => {
     });
 
     test('Cenário 6: Preencher password e confirm password diferentes', async () => {
-        await registerPage.fillFieldValue(registerPage.elements.password, passwords.invalid);
-        await registerPage.fillFieldValue(registerPage.elements.confirmPassword, passwords.difent);
+        await registerPage.fillFieldValue(registerPage.elements.password, passwords.valid);
+        await registerPage.fillFieldValue(registerPage.elements.confirmPassword, passwords.invalid);
         await registerPage.elements.btnRegister.click();
         await registerPage.assertErrorMessage(registerPage.elements.confirmPasswordError, registerPageMessages.passwordNotMatch);
     });
@@ -108,7 +114,7 @@ test.describe('Suite Test Register Page', async () => {
 
     test('Cenario 10: Registro salvo com sucesso', async () => {
 
-        person.sexType == 'male' ? await registerPage.elements.genderMale.check() : await registerPage.elements.genderFemale.check() 
+        person.sexType == 'male' ? await registerPage.elements.genderMale.check() : await registerPage.elements.genderFemale.check(); 
 
         await registerPage.fillFieldValue(registerPage.elements.firstName, person.firstName);
         await registerPage.fillFieldValue(registerPage.elements.lastName, person.lastName);
@@ -126,4 +132,20 @@ test.describe('Suite Test Register Page', async () => {
         await expect(registerResultPage.elements.btnConfirm).toBeVisible();
     });
 
+    test('Cenario 11: Validar Registro criado', async () => {
+
+        const newFaker = new Faker({ locale: pt_BR })
+        const newPerson = new Person(newFaker, newFaker.date.birthdate( {min: 18, max: 70, mode: 'age'})) 
+
+        await registerPage.registerUser(newPerson);
+
+        await homePage.elements.loginLink.click();
+
+        await loginPage.inputCredentials(newPerson.email, passwords.valid);
+        await loginPage.submitCredentials();
+
+        await homePage.elements.myAccountLink.click();
+
+        await customerInfoPage.assertElements(newPerson);
+    });
 });

@@ -17,7 +17,20 @@ export class LoginPage {
         };
     }
 
-    async goTo() {
-        await this.page.goto('https://demo.nopcommerce.com/');
+    async inputCredentials(userEmail: any, userPassword: any) {
+        
+        if (userEmail) {
+            await this.elements.email.clear();
+            await this.elements.email.fill(userEmail);
+        } 
+
+        if (userPassword) {
+            await this.elements.password.clear();
+            await this.elements.password.fill(userPassword);
+        } 
+    };
+
+    async submitCredentials() {
+        await this.elements.btnLogin.click();
     };
 };

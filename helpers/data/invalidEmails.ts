@@ -7,4 +7,4 @@ export const invalidEmails = ["firstName",
     "firstName.secondName@email.",
     "firstName@email.com.",
     "firstName.secondName@email.com.",
-]
+];

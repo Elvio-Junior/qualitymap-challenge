@@ -92,3 +92,16 @@ ENTÃO deve salvar o registro
 E ser redirecionado para a pagina de sucesso
 E mensagem Your registration completed
 E botão Continue visivel
+
+
+Cenario 11: Validar Registro criado
+DADO QUE tenho um usuario cadastrado
+E acesso a Home Page do site
+E clico no link Login
+E ser redirecionado para a pagina de Login do usuario
+E digito Email e Password do usuario cadastrado
+E clico em Log In
+E realizar o Log In com sucesso
+QUANDO clico no link My account 
+ENTÃO todas as informações pertinentes ao usuário devem ser listadas
+E de acordo com os dados do usuario cadastrado

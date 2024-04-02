@@ -1,4 +1,6 @@
 import { type Locator, type Page, expect } from '@playwright/test';
+import { Person } from '../helpers/data/person';
+import { passwords } from '../helpers/data/passwords';
 
 export class RegisterPage {
     readonly page: Page;
@@ -71,5 +73,21 @@ export class RegisterPage {
     async fillFieldValue(registerLocator: Locator, value: string) {
         await registerLocator.clear();
         await registerLocator.fill(value);
+    };
+
+    async registerUser(person: Person) {
+        person.sexType == 'male' ? await this.elements.genderMale.check() : await this.elements.genderFemale.check(); 
+
+        await this.fillFieldValue(this.elements.firstName, person.firstName);
+        await this.fillFieldValue(this.elements.lastName, person.lastName);
+        await this.fillFieldValue(this.elements.email, person.email);
+        await this.elements.birthDay.selectOption(person.birthDay);
+        await this.elements.birthMonth.selectOption(person.birthMonth);
+        await this.elements.birthYear.selectOption(person.birthYear);
+        await this.fillFieldValue(this.elements.companyDetails, person.companyName);
+        await this.fillFieldValue(this.elements.password, passwords.valid);
+        await this.fillFieldValue(this.elements.confirmPassword, passwords.valid);
+        
+        await this.elements.btnRegister.click();
     };
 };
