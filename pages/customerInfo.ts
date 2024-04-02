@@ -38,7 +38,7 @@ export class CustomerInfoPage {
         await expect(this.elements.firstName).toHaveValue(person.firstName);
         await expect(this.elements.lastName).toHaveValue(person.lastName);
         await expect(this.elements.birthDay).toContainText(person.birthDay);
-        //await expect(this.elements.birthMonth).toContainText(person.birthMonth);
+        await expect(this.elements.birthMonth).toHaveValue(person.birthMonth);
         await expect(this.elements.birthYear).toContainText(person.birthYear);
         await expect(this.elements.email).toHaveValue(person.email);
         await expect(this.elements.companyDetails).toHaveValue(person.companyName);
