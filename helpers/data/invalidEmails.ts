@@ -1,0 +1,10 @@
+export const invalidEmails = ["firstName", 
+    "firstName.",
+    "firstName.secondName",
+    "firstName@",
+    "firstName.secondName@",
+    "firstName@email.",
+    "firstName.secondName@email.",
+    "firstName@email.com.",
+    "firstName.secondName@email.com.",
+];
