@@ -1,0 +1,206 @@
+Cenário 1: Rota GET para todos os usuários
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios"
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de quantidade e usuários presentes
+
+Cenário 2: Rota GET para todos os usuários e Parametro ID inexistente 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?_id={id}" onde {id} não existe
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário não encontrada
+
+Cenário 3: Rota GET para todos os usuários e Parametro NOME inexistente 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?nome={nome}" onde {nome} não existe
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário não encontrada
+
+Cenário 4: Rota GET para todos os usuários e Parametro EMAIL inexistente 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?email={email}" onde {email} não existe
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário não encontrada
+
+Cenário 5: Rota GET para todos os usuários e Parametro PASSWORD inexistente 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?email={password}" onde {password} não existe
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário não encontrada
+
+Cenário 6: Rota GET para todos os usuários e Parametro ADMINISTRADOR inexistente 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?administrador={administrador}" onde {administrador} não existe
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de usuário não encontrada
+
+Cenário 7: Rota GET para todos os usuários e Parametro ID válido 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?_id={id}" onde {id} é válido
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário encontradas
+
+Cenário 8: Rota GET para todos os usuários e Parametro NOME válido 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?nome={nome}" onde {nome} válido
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário encontradas
+
+Cenário 9: Rota GET para todos os usuários e Parametro EMAIL válido 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?email={email}" onde {email} válido
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário encontradas
+
+Cenário 10: Rota GET para todos os usuários e Parametro PASSWORD válido 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?email={password}" onde {password} válido
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário encontradas
+
+Cenário 11: Rota GET para todos os usuários e Parametro ADMINISTRADOR válido 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios?administrador={administrador}" onde {administrador} válido
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário encontradas
+
+Cenário 12: Rota GET por ID de usuário e Parametro ID inexistente 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios/{id}" onde {id} não existe
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de usuário não encontrada
+
+Cenário 13: Rota GET por ID de usuário e Parametro ID válido 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso GET "/usuarios/{id}" onde {id} é válido
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E informações de usuário encontradas
+
+
+Cenário 14: Rota POST de usuário somente a chave nome no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso POST "/usuarios" onde tem somente a chave nome no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+
+Cenário 15: Rota POST de usuário somente a chave email no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso POST "/usuarios" onde tem somente a chave email no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+Cenário 16: Rota POST de usuário somente a chave password no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso POST "/usuarios" onde tem somente a chave password no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+Cenário 17: Rota POST de usuário somente a chave administrador no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso POST "/usuarios" onde tem somente a chave administrador no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+Cenário 18: Rota POST de usuário com email já cadastrado 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso POST "/usuarios" onde tem email já cadastrado no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de Este email já está sendo usado
+
+Cenário 19: Rota POST de usuário com sucesso 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso POST "/usuarios" com body válido
+ENTÃO deve retornar Status Code 201
+E corpo da resposta conforme schema esperado
+E usuário cadastrado com sucesso
+
+
+Cenário 20: Rota PUT de usuário somente a chave nome no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde tem somente a chave nome no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+
+Cenário 21: Rota PUT de usuário somente a chave email no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde tem somente a chave email no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+Cenário 22: Rota PUT de usuário somente a chave password no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde tem somente a chave password no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+Cenário 23: Rota PUT de usuário somente a chave administrador no body 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde tem somente a chave administrador no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de chaves obrigatórias
+
+Cenário 24: Rota PUT de usuário com email já cadastrado 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde tem email já cadastrado no body
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E informações de Este email já está sendo usado
+
+Cenário 25: Rota PUT de usuário com id não cadastrado 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde o id não é cadastrado
+ENTÃO deve retornar Status Code 201
+E corpo da resposta conforme schema esperado
+E usuário criado com sucesso
+
+Cenário 26: Rota PUT de usuário com id já cadastrado 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso PUT "/usuarios/{id}" onde o id é cadastrado
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E usuário alterado com sucesso
+
+Cenário 27: Rota DELETE de usuário com id não cadastrado 
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso DELETE "/usuarios/{id}" onde o id não é cadastrado
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E nenhum registro excluido
+
+Cenário 28: Rota DELETE de usuário com id já cadastrado e vinculado ao carrinho
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso DELETE "/usuarios/{id}" onde o id é cadastrado e vinculado ao carrinho
+ENTÃO deve retornar Status Code 400
+E corpo da resposta conforme schema esperado
+E nenhum registro excluido
+
+Cenário 29: Rota DELETE de usuário com id já cadastrado e sem vinculo com carrinho
+DADO QUE o endpoint da API esteja disponível
+QUANDO executo a solicitação para o recurso DELETE "/usuarios/{id}" onde o id é cadastrado e sem vinculo ao carrinho
+ENTÃO deve retornar Status Code 200
+E corpo da resposta conforme schema esperado
+E registro excluido com sucesso

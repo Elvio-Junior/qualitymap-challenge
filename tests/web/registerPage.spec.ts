@@ -1,14 +1,14 @@
-import { test, expect } from '@playwright/test'
-import { HomePage } from '../pages/homePage'
-import { Person } from '../helpers/data/person'
+import { test, expect } from '@playwright/test';
+import { HomePage } from '../../pages/homePage';
+import { Person } from '../../helpers/data/person';
+import { CustomerInfoPage } from '../../pages/customerInfo';
+import { LoginPage } from '../../pages/loginPage';
+import { RegisterPage } from '../../pages/registerPage';
+import { RegisterResultPage } from '../../pages/registerResultPage';
 import { Faker, pt_BR } from '@faker-js/faker';
-import { CustomerInfoPage } from '../pages/customerInfo';
-import { LoginPage } from '../pages/loginPage';
-import { RegisterPage } from '../pages/registerPage';
-import { RegisterResultPage } from '../pages/registerResultPage';
-import { registerPageMessages } from '../helpers/registerPage/registerPageMessages';
-import { invalidEmails } from '../helpers/data/invalidEmails';
-import { passwords } from '../helpers/data/passwords';
+import { registerPageMessages } from '../../helpers/registerPage/registerPageMessages';
+import { invalidEmails } from '../../helpers/data/invalidEmails';
+import { passwords } from '../../helpers/data/passwords';
 
 test.describe('Suite Test Register Page', async () => {
 
