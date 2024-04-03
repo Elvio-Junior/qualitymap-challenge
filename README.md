@@ -28,7 +28,10 @@ Este projeto tem o objetivo realizar a automação front-end e back-end utilizan
 
 ## Instalação
     - Realizar o clone do projeto
-    - Instalar os recursos necessários digite na raiz do projeto o comando `npm install`
+    - Instalar os recursos necessários digite na raiz do projeto os comandos:
+
+      - npx playwright install
+      - npm install
 
 ## Execução dos Testes
 
